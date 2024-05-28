@@ -61,7 +61,57 @@ body {
 
 }
 
+
+.right{
+    margin: 16px 0;
+}
+
 .footer a{
     color: grey;
     text-decoration: none;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(30,30,30);
+}
+
+.header> *{
+    padding: 20px;
+}
+
+.spotifyPlaylists{
+    padding: 15px;
+}
+
+.cardContainer{
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+}
+
+.cardContainer .card{
+    width: 150px;
+    /* border: 2px solid red; */
+    padding: 7px;
+    border-radius: 5px;
+    background-color: #252525;
+    position: relative;
+}
+
+.card > *{
+    padding-top: 7px;
+}
+.card img{
+    padding-top: 0;
+    border-radius: 7px;   
+    width: 100%;
+    object-fit: contain;
+}
+
+.card>div{
+    position: absolute;
+    top: 107px;
+    right: 14px;
 }
