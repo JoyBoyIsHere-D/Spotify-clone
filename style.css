@@ -64,6 +64,7 @@ body {
 
 .right{
     margin: 16px 0;
+    position: relative;
 }
 
 .footer a{
@@ -75,12 +76,43 @@ body {
     display: flex;
     justify-content: space-between;
     background-color: rgb(30,30,30);
+    max-height: 72px;
 }
 
 .header> *{
     padding: 20px;
 }
+.buttons{
+    padding-top: 13px;
+}
+.signupbtn{
+    border: 0;
+    padding: 0 15px;
+    background-color: rgb(30,30,30);
+    color: grey;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
 
+.signupbtn:hover{
+    font-size: 17px;
+    color: whitesmoke;
+}
+
+.loginbtn{
+    border: 0;
+    background-color: whitesmoke;
+    font-weight: bold;
+    padding: 12px 29px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.loginbtn:hover{
+    font-size: 17px;
+}
 .spotifyPlaylists{
     padding: 15px;
 }
@@ -88,7 +120,10 @@ body {
 .cardContainer{
     margin-top: 25px;
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
+    overflow-y: scroll;
+    max-height: 70vh;
 }
 
 .cardContainer .card{
@@ -114,4 +149,26 @@ body {
     position: absolute;
     top: 107px;
     right: 14px;
+}
+
+.playbar{
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(23, 125, 3);
+    width: 97%;
+    padding: 12px;
+}
+
+.playbuttons{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.songsList ul{
+    padding: 0 34px;
+}
+
+.songsList ul li{
+    list-style-type: decimal;
 }
