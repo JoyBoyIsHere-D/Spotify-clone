@@ -30,18 +30,22 @@ async function getSongs() {
     return songs;
 }
 
-function playMusic(track){
+function playMusic(track, pause=false){
     currentSong.src = "/songs/" + track +".mp3";
-    currentSong.play();
-    play.src = "/img/pause.svg"
-    document.querySelector(".songinfo").innerHTML = track;
+    if(!pause){
+        currentSong.play();
+        
+
+        play.src = "/img/pause.svg"
+    }
+    document.querySelector(".songinfo").innerHTML = decodeURI(track);
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00";
 }
 
 async function main() {
 
     let songs = await getSongs();
-    // console.log(songs);
+    playMusic(songs[0], true);
 
     let songUL = document.querySelector(".songsList").getElementsByTagName("ul")[0];
     for (const song of songs) {
@@ -56,6 +60,8 @@ async function main() {
                                                         <img class="invert" src="img/play.svg" alt="">
                                                     </div> </li>`;
     }
+
+
 
     Array.from ( document.querySelector(".songsList").getElementsByTagName("li")).forEach(e => {
         e.addEventListener("click", element=>{
@@ -78,10 +84,21 @@ async function main() {
 
     currentSong.addEventListener("timeupdate", () => {
         document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`
-        
+        document.querySelector(".circle").style.left = (currentSong.currentTime/currentSong.duration)*100 + "%"
     })
     
+    document.querySelector(".seekbar").addEventListener("click", e=>{
+        let percent = (e.offsetX/e.target.getBoundingClientRect().width)*100
+        document.querySelector(".circle").style.left = percent + "%"
+        currentSong.currentTime = currentSong.duration * (percent/100)
+    })
     
+    document.querySelector(".hamburger").addEventListener("click", e=>{
+        document.querySelector(".left").style.left = 0 
+    })
+    document.querySelector(".close").addEventListener("click", e=>{
+        document.querySelector(".left").style.left = -110 + "%" 
+    })
 }
 
 
