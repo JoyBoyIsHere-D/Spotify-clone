@@ -158,7 +158,7 @@ body {
 .playbar{
     position: fixed;
     bottom: 30px;
-    height: 36px;
+    min-height: 36px;
     background-color: rgb(23, 125, 3);
     width: 70vw;
     padding: 12px;
@@ -220,6 +220,10 @@ body {
     
 }
 
+.info div{
+    word-break: break-all;
+}
+
 .playNow{
     display: flex;
     justify-content: center;
@@ -247,7 +251,7 @@ body {
 @media (max-width: 1300px) {
     .left{
         position: absolute;
-        left: -110%;
+        left: -120%;
         z-index: 1;
         transition: all .5s;
         width: 400px;
@@ -257,6 +261,7 @@ body {
 
     .right{
         width: 100vw;
+        margin: 0;
 
     }
 
@@ -265,9 +270,20 @@ body {
     }
 
     .playContainer, .songinfo{
-        font-size: 8px; 
+        font-size: 15px; 
     }
-    
+    .playContainer{
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .playbuttons{
+        position: static;
+    }
+    .songinfo{
+        max-width: none;
+        width: auto;
+    }
 
     .hamburger{
         display: inline-block;
